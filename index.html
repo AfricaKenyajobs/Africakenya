@@ -3,265 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KenyaAfrica | Remote & Local Job Hub</title>
+    <title>KenyaAfrica | The Global & Local Hub</title>
     <style>
-        /* --- BEAUTIFUL & MODERN DESIGN --- */
-        :root {
-            --primary-green: #006400; /* Trusted Forest Green */
-            --accent-yellow: #ffcc00; /* Energetic Yellow */
-            --light-bg: #f4f7f6;
-            --white: #ffffff;
-            --text-dark: #333333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: var(--primary-green);
-            color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .login-btn {
-            background: var(--accent-yellow);
-            color: #000;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* --- DISCREET SCAM WARNING --- */
-        .trust-ribbon {
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #c8e6c9;
-        }
-
-        /* --- HEADER & SEARCH --- */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--white);
-        }
-
-        .search-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        input[type="text"] {
-            padding: 12px 20px;
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            outline: none;
-        }
-
-        /* --- FUN PART: DAILY POLL --- */
-        .daily-poll {
-            max-width: 600px;
-            margin: 20px auto;
-            background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent-yellow);
-        }
-
-        .poll-options button {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .poll-options button:hover {
-            background: var(--accent-yellow);
-        }
-
-        /* --- JOB LISTINGS --- */
-        .job-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            padding: 40px 8%;
-        }
-
-        .job-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            position: relative;
-            border-left: 5px solid var(--primary-green);
-        }
-
-        .job-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .verified-tag {
-            font-size: 0.7rem;
-            background: #e3f2fd;
-            color: #1565c0;
-            padding: 4px 10px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .job-card h3 {
-            margin: 15px 0 5px 0;
-            color: var(--primary-green);
-        }
-
-        .company-name {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .job-info {
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-        }
-
-        /* --- EXTERNAL LINK BUTTON --- */
-        .apply-link {
-            display: block;
-            text-align: center;
-            background: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .apply-link:hover {
-            background: #004d00;
-            box-shadow: 0 4px 10px rgba(0,100,0,0.3);
-        }
-
-        @media (max-width: 600px) {
-            input[type="text"] { width: 80%; }
-        }
+        :root { --green: #006400; --yellow: #ffcc00; --bg: #f4f7f6; --red: #d32f2f; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; line-height: 1.6; }
+        header { background: var(--green); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 6px solid var(--yellow); }
+        .safety-bar { background: var(--red); color: white; padding: 12px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1000; font-size: 0.9rem; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-left: 6px solid var(--green); }
+        .card.red-zone { border-left-color: var(--red); background: #fff5f5; }
+        .badge { display: inline-block; background: var(--yellow); padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .btn { display: block; background: var(--green); color: white; padding: 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: bold; margin-top: 15px; }
+        .btn.red { background: var(--red); }
+        footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 3rem; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
-    <div class="trust-ribbon">
-        🛡️ <strong>Safety Note:</strong> No company listed here will ask for money for a job. If they do, it's a scam.
+<div class="safety-bar">
+    🚨 STAY SAFE: Never pay for a job. Meet physical employers in public places only.
+</div>
+
+<header>
+    <h1>🌍 KenyaAfrica Job Hub</h1>
+    <p>Connecting You to Verified Global Tasks & Local Kenyan Careers</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <span class="badge">Online - No Skills</span>
+        <h3>Simple Micro-Tasks</h3>
+        <p>Best for beginners. Earn daily by liking social media posts, taking surveys, or testing small apps on SproutGigs.</p>
+        <a href="https://sproutgigs.com" class="btn">Start Simple Work</a>
     </div>
 
-    <nav>
-        <div class="logo">KenyaAfrica</div>
-        <button class="login-btn" onclick="login()">Google Login</button>
-    </nav>
+    <div class="card">
+        <span class="badge">Online - Skilled</span>
+        <h3>Remote Professional Roles</h3>
+        <p>Data entry, writing, and virtual assistant roles for global companies like Andela and Twiga Foods.</p>
+        <a href="https://remotive.com/remote-africa-jobs" class="btn">View Remote Jobs</a>
+    </div>
 
-    <header>
-        <h1>Global Online Jobs for Africa</h1>
-        <p>Connecting you directly to verified company career pages.</p>
-        
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search roles (e.g. Data Entry, Sales)..." onkeyup="filterJobs()">
-        </div>
-    </header>
+    <div class="card">
+        <span class="badge">Hospitals - Nurses</span>
+        <h3>Nursing & Clinical Jobs</h3>
+        <p>Safe vacancies for RNs and KRCHNs at Aga Khan, KUTRRH, and Nairobi West Hospital.</p>
+        <a href="https://www.fuzu.com/kenya/job/nurses" class="btn">Find Nursing Roles</a>
+    </div>
 
-    <section class="daily-poll">
-        <h3>📊 Daily Pulse</h3>
-        <p>Which work style do you prefer?</p>
-        <div class="poll-options">
-            <button onclick="vote()">Fully Remote 🏠</button>
-            <button onclick="vote()">Hybrid / Office 🏢</button>
-            <button onclick="vote()">Flexible Hours ⏰</button>
-        </div>
-        <p id="poll-msg" style="margin-top:10px; font-size: 0.8rem; color: #888;"></p>
-    </section>
+    <div class="card">
+        <span class="badge">IT & Engineering</span>
+        <h3>Tech & Industrial Experts</h3>
+        <p>Software dev, systems support, and civil engineering roles at verified Kenyan firms and industrial parks.</p>
+        <a href="https://www.myjobmag.co.ke/cp/it-jobs-nairobi" class="btn">View Tech Jobs</a>
+    </div>
 
-    <main class="job-grid" id="jobGrid">
-        
-        <div class="job-card">
-            <span class="verified-tag">✓ Global Remote</span>
-            <h3>Customer Success Specialist</h3>
-            <p class="company-name">Found on: <strong>Shopify</strong></p>
-            <div class="job-info">📍 100% Online | 💰 Competitive Pay</div>
-            <a href="https://www.shopify.com/careers" target="_blank" class="apply-link">Apply on Company Site ↗</a>
-        </div>
+    <div class="card">
+        <span class="badge">Physical & Construction</span>
+        <h3>Safe Site & Factory Work</h3>
+        <p>Construction workers, plant operators, and factory roles at verified locations like Tatu City.</p>
+        <a href="https://www.fuzu.com/kenya/job/skilled-manual-labor" class="btn">Find Physical Work</a>
+    </div>
 
-        <div class="job-card">
-            <span class="verified-tag">✓ Near You</span>
-            <h3>IT Intern / Assistant</h3>
-            <p class="company-name">Found on: <strong>Z-Tech Hub</strong></p>
-            <div class="job-info">📍 Nairobi / Hybrid | 💼 Training Provided</div>
-            <a href="#" target="_blank" class="apply-link">Apply on Company Site ↗</a>
-        </div>
+    <div class="card">
+        <span class="badge">Services & Cleaning</span>
+        <h3>Hospital & Hotel Support</h3>
+        <p>Cleaners, laundry staff, and kitchen help for nearby hospitals and established hotels.</p>
+        <a href="https://www.myjobmag.co.ke/jobs-by-field/cleaning-services" class="btn">View Service Jobs</a>
+    </div>
 
-        <div class="job-card">
-            <span class="verified-tag">✓ Global Remote</span>
-            <h3>Data Entry Associate</h3>
-            <p class="company-name">Found on: <strong>Amazon Jobs</strong></p>
-            <div class="job-info">📍 Remote Africa | 🕒 Part-time</div>
-            <a href="https://www.amazon.jobs" target="_blank" class="apply-link">Apply on Company Site ↗</a>
-        </div>
+    <div class="card red-zone">
+        <span class="badge" style="background:var(--red); color:white;">Safety First</span>
+        <h3>Verify Any Company</h3>
+        <p>Prevent scams and kidnappings. Check if an agency is licensed by the Government of Kenya before meeting.</p>
+        <a href="https://diaspora.go.ke/verify" class="btn red">Verify an Agency Now</a>
+    </div>
+</div>
 
-    </main>
+<footer>
+    <p>&copy; 2026 KenyaAfrica - Helping Kenyans Find Work Safely</p>
+</footer>
 
-    <script>
-        // Simple filter logic
-        function filterJobs() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('job-card');
-            
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-
-        // Fun Poll Logic
-        function vote() {
-            document.getElementById('poll-msg').innerText = "Thanks for voting! 68% of people agreed with you today.";
-        }
-
-        // Login Simulation
-        function login() {
-            alert("This would open the Google Login popup!");
-        }
-    </script>
 </body>
 </html>
