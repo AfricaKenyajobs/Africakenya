@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KenyaAfrica | Remote & Local Job Hub</title>
+    <style>
+        /* --- BEAUTIFUL & MODERN DESIGN --- */
+        :root {
+            --primary-green: #006400; /* Trusted Forest Green */
+            --accent-yellow: #ffcc00; /* Energetic Yellow */
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: var(--primary-green);
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .login-btn {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* --- DISCREET SCAM WARNING --- */
+        .trust-ribbon {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #c8e6c9;
+        }
+
+        /* --- HEADER & SEARCH --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--white);
+        }
+
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            padding: 12px 20px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        /* --- FUN PART: DAILY POLL --- */
+        .daily-poll {
+            max-width: 600px;
+            margin: 20px auto;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-yellow);
+        }
+
+        .poll-options button {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .poll-options button:hover {
+            background: var(--accent-yellow);
+        }
+
+        /* --- JOB LISTINGS --- */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 40px 8%;
+        }
+
+        .job-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .verified-tag {
+            font-size: 0.7rem;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 4px 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .job-card h3 {
+            margin: 15px 0 5px 0;
+            color: var(--primary-green);
+        }
+
+        .company-name {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .job-info {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- EXTERNAL LINK BUTTON --- */
+        .apply-link {
+            display: block;
+            text-align: center;
+            background: var(--primary-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .apply-link:hover {
+            background: #004d00;
+            box-shadow: 0 4px 10px rgba(0,100,0,0.3);
+        }
+
+        @media (max-width: 600px) {
+            input[type="text"] { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="trust-ribbon">
+        🛡️ <strong>Safety Note:</strong> No company listed here will ask for money for a job. If they do, it's a scam.
+    </div>
+
+    <nav>
+        <div class="logo">KenyaAfrica</div>
+        <button class="login-btn" onclick="login()">Google Login</button>
+    </nav>
+
+    <header>
+        <h1>Global Online Jobs for Africa</h1>
+        <p>Connecting you directly to verified company career pages.</p>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search roles (e.g. Data Entry, Sales)..." onkeyup="filterJobs()">
+        </div>
+    </header>
+
+    <section class="daily-poll">
+        <h3>📊 Daily Pulse</h3>
+        <p>Which work style do you prefer?</p>
+        <div class="poll-options">
+            <button onclick="vote()">Fully Remote 🏠</button>
+            <button onclick="vote()">Hybrid / Office 🏢</button>
+            <button onclick="vote()">Flexible Hours ⏰</button>
+        </div>
+        <p id="poll-msg" style="margin-top:10px; font-size: 0.8rem; color: #888;"></p>
+    </section>
+
+    <main class="job-grid" id="jobGrid">
+        
+        <div class="job-card">
+            <span class="verified-tag">✓ Global Remote</span>
+            <h3>Customer Success Specialist</h3>
+            <p class="company-name">Found on: <strong>Shopify</strong></p>
+            <div class="job-info">📍 100% Online | 💰 Competitive Pay</div>
+            <a href="https://www.shopify.com/careers" target="_blank" class="apply-link">Apply on Company Site ↗</a>
+        </div>
+
+        <div class="job-card">
+            <span class="verified-tag">✓ Near You</span>
+            <h3>IT Intern / Assistant</h3>
+            <p class="company-name">Found on: <strong>Z-Tech Hub</strong></p>
+            <div class="job-info">📍 Nairobi / Hybrid | 💼 Training Provided</div>
+            <a href="#" target="_blank" class="apply-link">Apply on Company Site ↗</a>
+        </div>
+
+        <div class="job-card">
+            <span class="verified-tag">✓ Global Remote</span>
+            <h3>Data Entry Associate</h3>
+            <p class="company-name">Found on: <strong>Amazon Jobs</strong></p>
+            <div class="job-info">📍 Remote Africa | 🕒 Part-time</div>
+            <a href="https://www.amazon.jobs" target="_blank" class="apply-link">Apply on Company Site ↗</a>
+        </div>
+
+    </main>
+
+    <script>
+        // Simple filter logic
+        function filterJobs() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('job-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Fun Poll Logic
+        function vote() {
+            document.getElementById('poll-msg').innerText = "Thanks for voting! 68% of people agreed with you today.";
+        }
+
+        // Login Simulation
+        function login() {
+            alert("This would open the Google Login popup!");
+        }
+    </script>
+</body>
+</html>
