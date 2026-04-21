@@ -1,0 +1,22 @@
+name: Weekly Job Update
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at midnight
+  workflow_dispatch: # Adds a button so YOU can run it manually
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allows robot to save jobs to your index.html
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch Latest Jobs
+        uses: gautamkrishnar/blog-post-workflow@master
+        with:
+          # Real Kenyan job feeds
+          feed_list: "https://www.myjobmag.co.ke/rss,https://www.brightermonday.co.ke/blog/feed"
+          max_post_count: 10
+          readme_path: "./index.html"
+          comment_tag_name: "JOBS-LIST"
+          template: "<li style='margin-bottom:10px;'>🔹 <a href='$url' target='_blank' style='color:#006400; font-weight:bold; text-decoration:none;'>$title</a></li>"
