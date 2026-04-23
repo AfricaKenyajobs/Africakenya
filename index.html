@@ -1,85 +1,1672 @@
-<!DOCTYPE html>
+html_code = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Kenya Jobs | Free & Verified</title>
+    <title>SafeHire - Verified Jobs, No Fees</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
-        /* 1. THE STYLE (CSS) - This makes it look professional */
-        :root { --kenya-green: #006400; --kenya-red: #bb0000; --gov-blue: #0d47a1; --light: #f4f4f4; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .safety-banner { background: var(--kenya-red); color: white; padding: 12px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 100; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --danger: #dc2626;
+            --danger-bg: #fef2f2;
+            --success: #16a34a;
+            --warning: #f59e0b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
         
-        header { background: var(--kenya-green); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 5px solid var(--kenya-red); }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
         
-        .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        /* ===== TOP SAFETY BANNER ===== */
+        .safety-banner {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
         
-        .job-card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 6px solid var(--kenya-green); box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .gov-card { border-left-color: var(--gov-blue); background: #f0f7ff; }
-
-        .btn { background: var(--kenya-green); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
-        .btn-gov { background: var(--gov-blue); }
-
-        .fun-zone { background: #fffde7; padding: 25px; border: 2px dashed #fbc02d; border-radius: 10px; text-align: center; margin-top: 40px; }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+        }
+        
+        .safety-banner i { margin-right: 8px; font-size: 1.2em; }
+        .safety-banner a { color: #fef08a; text-decoration: underline; cursor: pointer; }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: var(--card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-box {
+            max-width: 700px;
+            margin: 30px auto 0;
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 1em;
+            outline: none;
+        }
+        
+        .search-box button {
+            padding: 18px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 30px 5%;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item .number {
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .stat-item .label {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+        
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 60px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section h2 i { color: var(--primary); }
+        
+        /* ===== JOB CARDS ===== */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .job-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        
+        .job-card.featured {
+            border: 2px solid var(--warning);
+            background: linear-gradient(to bottom right, #fffbeb, white);
+        }
+        
+        .job-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .badge-verified {
+            background: #dcfce7;
+            color: var(--success);
+        }
+        
+        .badge-online {
+            background: #dbeafe;
+            color: var(--primary);
+        }
+        
+        .badge-government {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        
+        .badge-healthcare {
+            background: #fce7f3;
+            color: #db2777;
+        }
+        
+        .badge-physical {
+            background: #ffedd5;
+            color: #ea580c;
+        }
+        
+        .job-company {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), #60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2em;
+        }
+        
+        .company-info h4 {
+            font-size: 1.1em;
+            margin-bottom: 3px;
+        }
+        
+        .company-info span {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta span {
+            font-size: 0.9em;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job-description {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .expiry-date {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+        
+        .expiry-date.urgent {
+            color: var(--danger);
+            font-weight: 600;
+        }
+        
+        .job-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.85em;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-apply {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-report {
+            background: var(--danger-bg);
+            color: var(--danger);
+        }
+        
+        /* ===== SAFETY INFO BOX ===== */
+        .safety-info {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid var(--warning);
+        }
+        
+        .safety-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #92400e;
+        }
+        
+        .safety-info ul {
+            margin-left: 20px;
+            color: #78350f;
+        }
+        
+        .safety-info li {
+            margin-bottom: 8px;
+        }
+        
+        /* ===== Q&A SECTION ===== */
+        .qa-container {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        
+        .qa-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+        
+        .qa-item:last-child { border-bottom: none; }
+        
+        .qa-question {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+        
+        .qa-answer {
+            color: var(--text-light);
+            padding-left: 30px;
+        }
+        
+        .ask-question-box {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+        
+        .ask-question-box h4 {
+            margin-bottom: 15px;
+        }
+        
+        .ask-question-box textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        
+        /* ===== REPORT MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-overlay.active { display: flex; }
+        
+        .modal {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal h2 {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        /* ===== FUN ACTIVITIES SECTION ===== */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .activity-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        
+        .activity-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .activity-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .activity-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+        
+        /* ===== DAILY CHALLENGE ===== */
+        .daily-challenge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .daily-challenge h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .challenge-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .challenge-question {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .challenge-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .challenge-option {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid transparent;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .challenge-option:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+        
+        .challenge-option.correct {
+            background: rgba(34, 197, 94, 0.5);
+            border-color: #22c55e;
+        }
+        
+        .challenge-option.wrong {
+            background: rgba(239, 68, 68, 0.5);
+            border-color: #ef4444;
+        }
+        
+        .streak-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 60px 5% 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .footer-section a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-section a:hover { color: white; }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+        }
+        
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--border);
+            background: var(--card);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .tab:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .nav-links { display: none; }
+            .stats-bar { flex-direction: column; gap: 20px; }
+            .jobs-grid { grid-template-columns: 1fr; }
+            .challenge-options { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; gap: 15px; align-items: flex-start; }
+        }
+        
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-light); }
+        
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .toast.show { display: flex; }
+        
+        /* ===== JOB SPOTLIGHT ===== */
+        .spotlight-banner {
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .spotlight-banner h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .countdown {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Safety Banner -->
     <div class="safety-banner">
-        ⚠️ SCAM ALERT: Never pay for a job. If they ask for M-Pesa, report them!
+        <i class="fas fa-shield-alt"></i>
+        <strong>SAFETY WARNING:</strong> Legitimate jobs NEVER ask for money upfront. If you see a job requiring payment, 
+        <a onclick="openReportModal()">REPORT IT IMMEDIATELY</a>. We verify all listings, but scammers are clever. Stay safe!
     </div>
 
-    <header>
-        <h1>AFRICA KENYA JOBS</h1>
-        <p>Connecting Kenyans to Real Opportunities</p>
-    </header>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            SafeHire
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="scrollToSection('online-jobs')">Online Jobs</a></li>
+            <li><a onclick="scrollToSection('physical-jobs')">Physical Jobs</a></li>
+            <li><a onclick="scrollToSection('healthcare-jobs')">Healthcare</a></li>
+            <li><a onclick="scrollToSection('government-jobs')">Government</a></li>
+            <li><a onclick="scrollToSection('qa-section')">Q&A</a></li>
+            <li><a onclick="scrollToSection('activities')">Fun Zone</a></li>
+            <li><button class="btn btn-danger" onclick="openReportModal()">
+                <i class="fas fa-flag"></i> Report Issue
+            </button></li>
+        </ul>
+    </nav>
 
-    <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Safe, Verified Jobs</h1>
+        <p>Zero fees. Zero scams. 100% verified opportunities from trusted companies, government agencies, and healthcare providers.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search jobs by title, company, or category..." id="searchInput">
+            <button onclick="searchJobs()"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="number" id="totalJobs">1,247</div>
+            <div class="label">Active Jobs</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">100%</div>
+            <div class="label">Fee-Free</div>
+        </div>
+        <div class="stat-item">
+            <div class="number" id="verifiedCompanies">89</div>
+            <div class="label">Verified Companies</div>
+        </div>
+        <div class="stat-item">
+            <div class="number" id="dailyVisitors">3.2K</div>
+            <div class="label">Daily Visitors</div>
+        </div>
+    </div>
+
+    <!-- Job of the Day Spotlight -->
+    <div class="section">
+        <div class="spotlight-banner">
+            <h3><i class="fas fa-star"></i> Job Spotlight of the Day</h3>
+            <div class="countdown"><i class="fas fa-clock"></i> Refreshes in: <span id="countdown">12:45:30</span></div>
+        </div>
+    </div>
+
+    <!-- Online Jobs Section -->
+    <section class="section" id="online-jobs">
+        <div class="section-header">
+            <h2><i class="fas fa-laptop"></i> Online Jobs</h2>
+            <button class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></button>
+        </div>
         
-        <h2 style="color: var(--gov-blue);">🏛️ Government Vacancies</h2>
-        <div id="gov-list">
-            <div class="job-card gov-card">
-                <div>
-                    <h3>Clerical Officer II</h3>
-                    <p>Public Service Commission (PSC)</p>
+        <div class="safety-info">
+            <h3><i class="fas fa-exclamation-triangle"></i> Online Job Safety Tips</h3>
+            <ul>
+                <li>Never pay for "training materials," "starter kits," or "background checks"</li>
+                <li>Verify the company's official website before applying</li>
+                <li>Be cautious of jobs promising unrealistic earnings for little work</li>
+                <li>Legitimate remote jobs will have proper interviews — not instant hiring</li>
+            </ul>
+        </div>
+        
+        <div class="jobs-grid" id="onlineJobsGrid">
+            <!-- Online jobs will be populated by JS -->
+        </div>
+    </section>
+
+    <!-- Physical Jobs Section -->
+    <section class="section" id="physical-jobs">
+        <div class="section-header">
+            <h2><i class="fas fa-building"></i> Physical & In-Person Jobs</h2>
+            <button class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></button>
+        </div>
+        
+        <div class="safety-info" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-left-color: var(--primary);">
+            <h3 style="color: #1e40af;"><i class="fas fa-handshake"></i> In-Person Meeting Safety</h3>
+            <ul style="color: #1e3a5f;">
+                <li>Always meet in a public, well-lit place (coffee shops, libraries, co-working spaces)</li>
+                <li>Inform a friend or family member of your meeting location and time</li>
+                <li>Never go to a private residence for an initial interview</li>
+                <li>Verify the company exists through official channels before meeting</li>
+                <li>Trust your instincts — if something feels wrong, leave immediately</li>
+            </ul>
+        </div>
+        
+        <div class="jobs-grid" id="physicalJobsGrid">
+            <!-- Physical jobs populated by JS -->
+        </div>
+    </section>
+
+    <!-- Healthcare Jobs Section -->
+    <section class="section" id="healthcare-jobs">
+        <div class="section-header">
+            <h2><i class="fas fa-heartbeat"></i> Healthcare & Caregiving Jobs</h2>
+            <button class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></button>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="filterHealthcare('all')">All Healthcare</button>
+            <button class="tab" onclick="filterHealthcare('nursing')">Nursing</button>
+            <button class="tab" onclick="filterHealthcare('eldercare')">Elder Care</button>
+            <button class="tab" onclick="filterHealthcare('childcare')">Child Care</button>
+            <button class="tab" onclick="filterHealthcare('disability')">Disability Care</button>
+        </div>
+        
+        <div class="jobs-grid" id="healthcareJobsGrid">
+            <!-- Healthcare jobs populated by JS -->
+        </div>
+    </section>
+
+    <!-- Government Jobs Section -->
+    <section class="section" id="government-jobs">
+        <div class="section-header">
+            <h2><i class="fas fa-landmark"></i> Government Jobs</h2>
+            <button class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></button>
+        </div>
+        
+        <div class="safety-info" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-left-color: #7c3aed;">
+            <h3 style="color: #5b21b6;"><i class="fas fa-shield-alt"></i> Official Government Opportunities</h3>
+            <ul style="color: #4c1d95;">
+                <li>All government jobs listed here link to official .gov websites</li>
+                <li>Never pay for government job applications — they are always FREE</li>
+                <li>Verify through official government portals before applying</li>
+                <li>Government hiring processes are transparent and documented</li>
+            </ul>
+        </div>
+        
+        <div class="jobs-grid" id="governmentJobsGrid">
+            <!-- Government jobs populated by JS -->
+        </div>
+    </section>
+
+    <!-- Daily Challenge / Fun Activity -->
+    <section class="section" id="activities">
+        <div class="section-header">
+            <h2><i class="fas fa-gamepad"></i> Daily Challenge & Fun Zone</h2>
+        </div>
+        
+        <div class="daily-challenge">
+            <h3><i class="fas fa-trophy"></i> Career Knowledge Challenge</h3>
+            <p>Test your job search smarts and earn streak points!</p>
+            
+            <div class="challenge-box">
+                <div class="challenge-question" id="challengeQuestion">
+                    Which of these is a RED FLAG in a job posting?
                 </div>
-                <a href="https://www.publicservice.go.ke" target="_blank" class="btn btn-gov">Official Portal</a>
+                <div class="challenge-options" id="challengeOptions">
+                    <button class="challenge-option" onclick="answerChallenge(this, false)">Requires a college degree</button>
+                    <button class="challenge-option" onclick="answerChallenge(this, true)">Asks you to pay upfront fees</button>
+                    <button class="challenge-option" onclick="answerChallenge(this, false)">Has a detailed job description</button>
+                    <button class="challenge-option" onclick="answerChallenge(this, false)">Lists specific work hours</button>
+                </div>
+            </div>
+            
+            <div class="streak-counter">
+                <i class="fas fa-fire"></i>
+                <span>Current Streak: <span id="streakCount">5</span> days</span>
             </div>
         </div>
-
-        <h2 style="color: var(--kenya-green);">💻 Verified Online Jobs</h2>
-        <div id="online-list">
-            <div class="job-card">
-                <div>
-                    <h3>Data Labeling Specialist</h3>
-                    <p>Remotasks | Work from Home</p>
-                </div>
-                <a href="#" class="btn" onclick="alert('Applying for Online Task...')">Apply Now</a>
+        
+        <div class="activities-grid" style="margin-top: 30px;">
+            <div class="activity-card" onclick="showToast('Coming soon! Resume Builder launching next week!')">
+                <div class="activity-icon">📄</div>
+                <h3>Resume Builder</h3>
+                <p>Create a professional resume with our guided templates. Free forever!</p>
+            </div>
+            <div class="activity-card" onclick="showToast('Coming soon! Mock interviews with AI feedback!')">
+                <div class="activity-icon">🎤</div>
+                <h3>Mock Interviews</h3>
+                <p>Practice with common interview questions and get instant feedback.</p>
+            </div>
+            <div class="activity-card" onclick="showToast('Coming soon! Salary calculator tool!')">
+                <div class="activity-icon">💰</div>
+                <h3>Salary Calculator</h3>
+                <p>Compare salaries across industries and locations. Know your worth!</p>
+            </div>
+            <div class="activity-card" onclick="showToast('Coming soon! Skill assessment quizzes!')">
+                <div class="activity-icon">📊</div>
+                <h3>Skill Assessments</h3>
+                <p>Test your skills and get certificates to add to your profile.</p>
             </div>
         </div>
+    </section>
 
-        <div class="fun-zone">
-            <h3>🎉 The Hustlers' Corner</h3>
-            <p>Need a bit of motivation while searching?</p>
-            <button class="btn" style="background:#fbc02d; color:#333;" onclick="getQuote()">Get Motivation</button>
-            <p id="quote-display" style="font-style: italic; margin-top: 15px; font-weight: bold;"></p>
+    <!-- Q&A Section -->
+    <section class="section" id="qa-section">
+        <div class="section-header">
+            <h2><i class="fas fa-comments"></i> Questions & Answers</h2>
         </div>
+        
+        <div class="qa-container">
+            <div class="qa-item">
+                <div class="qa-question"><i class="fas fa-question-circle"></i> How do I know if a job is legitimate?</div>
+                <div class="qa-answer">Look for clear company information, professional communication, no upfront fees, and a proper interview process. All jobs on SafeHire are pre-screened, but always do your own research too. Check the company's official website and reviews on Glassdoor or LinkedIn.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question"><i class="fas fa-question-circle"></i> Do I need to pay to apply for jobs here?</div>
+                <div class="qa-answer">Absolutely NOT. SafeHire is 100% free for job seekers. If any job asks for payment (for training, materials, background checks, etc.), report it immediately using the red "Report" button. Legitimate employers pay us, not you.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question"><i class="fas fa-question-circle"></i> How often are new jobs posted?</div>
+                <div class="qa-answer">We update our listings every week with fresh opportunities. The best jobs from the previous week remain visible until they expire or are filled. You can check the "Job Spotlight of the Day" for a featured opportunity refreshed daily!</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question"><i class="fas fa-question-circle"></i> Is it safe to meet employers in person?</div>
+                <div class="qa-answer">Always meet in public places for initial interviews. Coffee shops, libraries, and co-working spaces are ideal. Never go to a private residence. Inform someone of your whereabouts, and trust your instincts. Our physical job listings are from verified companies only.</div>
+            </div>
+            <div class="qa-item">
+                <div class="qa-question"><i class="fas fa-question-circle"></i> Can I post a job on SafeHire?</div>
+                <div class="qa-answer">Yes! Employers can post jobs for free. However, all postings are reviewed within 24 hours to ensure they meet our safety standards. We do not allow jobs that require upfront payments from applicants. Verified companies get a blue checkmark badge.</div>
+            </div>
+            
+            <div class="ask-question-box">
+                <h4><i class="fas fa-pen"></i> Ask Your Own Question</h4>
+                <textarea placeholder="Type your question here... Our team or community will answer within 24 hours!"></textarea>
+                <button class="btn btn-primary" onclick="showToast('Question submitted! We\'ll answer within 24 hours.')">
+                    <i class="fas fa-paper-plane"></i> Submit Question
+                </button>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4><i class="fas fa-briefcase"></i> SafeHire</h4>
+                <p style="color: #94a3b8; margin-bottom: 20px;">Connecting people with safe, verified job opportunities since 2024. Zero scams. Zero fees.</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Job Categories</h4>
+                <a onclick="scrollToSection('online-jobs')">Online Jobs</a>
+                <a onclick="scrollToSection('physical-jobs')">Physical Jobs</a>
+                <a onclick="scrollToSection('healthcare-jobs')">Healthcare</a>
+                <a onclick="scrollToSection('government-jobs')">Government</a>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <a onclick="scrollToSection('qa-section')">Q&A Forum</a>
+                <a onclick="openReportModal()">Report an Issue</a>
+                <a onclick="showToast('Coming soon!')">Success Stories</a>
+                <a onclick="showToast('Coming soon!')">Career Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Safety</h4>
+                <a onclick="showToast('Coming soon!')">Safety Guidelines</a>
+                <a onclick="showToast('Coming soon!')">Scam Awareness</a>
+                <a onclick="showToast('Coming soon!')">How We Verify</a>
+                <a onclick="showToast('Coming soon!')">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 SafeHire. All rights reserved. Your safety is our priority.</p>
+        </div>
+    </footer>
+
+    <!-- Report Modal -->
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal" style="position: relative;">
+            <button class="modal-close" onclick="closeReportModal()">&times;</button>
+            <h2><i class="fas fa-flag" style="color: var(--danger);"></i> Report an Issue</h2>
+            <p>Help us keep SafeHire safe for everyone. All reports are confidential and reviewed within 2 hours.</p>
+            
+            <form onsubmit="submitReport(event)">
+                <div class="form-group">
+                    <label>What are you reporting?</label>
+                    <select required>
+                        <option value="">Select an issue...</option>
+                        <option value="money">Job asking for money upfront</option>
+                        <option value="scam">Suspicious/scam job posting</option>
+                        <option value="expired">Job is expired but still listed</option>
+                        <option value="fake">Fake company or misleading info</option>
+                        <option value="safety">Safety concern about in-person job</option>
+                        <option value="other">Other issue</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Job Title (if applicable)</label>
+                    <input type="text" placeholder="e.g., Remote Data Entry Clerk">
+                </div>
+                
+                <div class="form-group">
+                    <label>Company Name (if applicable)</label>
+                    <input type="text" placeholder="e.g., ABC Corporation">
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Email (optional, for follow-up)</label>
+                    <input type="email" placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Details of the Issue *</label>
+                    <textarea placeholder="Please describe what happened. Include any messages, links, or screenshots that can help us investigate." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-danger" style="width: 100%; padding: 14px;">
+                    <i class="fas fa-paper-plane"></i> Submit Report
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Action completed successfully!</span>
     </div>
 
     <script>
-        function getQuote() {
-            const quotes = [
-                "Kazi ni kazi, bora liende!",
-                "Your hustle will pay off soon. Keep applying!",
-                "Small steps every day lead to big results.",
-                "Success in Kenya belongs to the persistent!"
-            ];
-            const random = Math.floor(Math.random() * quotes.length);
-            document.getElementById('quote-display').innerText = "“" + quotes[random] + "”";
-        }
-    </script>
+        // ===== JOB DATA =====
+        const onlineJobs = [
+            {
+                company: "DataFlow Inc",
+                logo: "DF",
+                title: "Remote Data Entry Specialist",
+                location: "Remote",
+                type: "Full-time",
+                salary: "$18 - $24/hr",
+                description: "Enter and verify data from various sources into our database systems. No experience required. Training provided.",
+                expiry: "2024-05-15",
+                link: "https://example.com/apply/dataflow",
+                badge: "online",
+                featured: true
+            },
+            {
+                company: "SocialBoost Agency",
+                logo: "SB",
+                title: "Social Media Manager",
+                location: "Remote",
+                type: "Part-time",
+                salary: "$22 - $30/hr",
+                description: "Manage social media accounts for small businesses. Create content calendars and engage with audiences.",
+                expiry: "2024-05-20",
+                link: "https://example.com/apply/socialboost",
+                badge: "online",
+                featured: false
+            },
+            {
+                company: "WriteRight Co",
+                logo: "WR",
+                title: "Freelance Content Writer",
+                location: "Remote",
+                type: "Contract",
+                salary: "$0.10 - $0.25/word",
+                description: "Write blog posts, articles, and website content for various clients. Flexible hours. Weekly payments.",
+                expiry: "2024-05-10",
+                link: "https://example.com/apply/writeright",
+                badge: "online",
+                featured: false
+            },
+            {
+                company: "CustomerFirst LLC",
+                logo: "CF",
+                title: "Virtual Customer Support Agent",
+                location: "Remote",
+                type: "Full-time",
+                salary: "$16 - $20/hr",
+                description: "Provide email and chat support for e-commerce customers. Home office setup stipend provided.",
+                expiry: "2024-05-25",
+                link: "https://example.com/apply/customerfirst",
+                badge: "online",
+                featured: false
+            },
+            {
+                company: "DesignHub",
+                logo: "DH",
+                title: "Junior Graphic Designer",
+                location: "Remote",
+                type: "Full-time",
+                salary: "$45,000 - $55,000/yr",
+                description: "Create social media graphics, marketing materials, and brand assets. Adobe Creative Suite provided.",
+                expiry: "2024-05-18",
+                link: "https://example.com/apply/designhub",
+                badge: "online",
+                featured: true
+            },
+            {
+                company: "TeachGlobal",
+                logo: "TG",
+                title: "Online English Tutor",
+                location: "Remote",
+                type: "Part-time",
+                salary: "$15 - $25/hr",
+                description: "Teach English to students worldwide via video calls. TEFL certificate preferred but not required.",
+                expiry: "2024-05-30",
+                link: "https://example.com/apply/teachglobal",
+                badge: "online",
+                featured: false
+            }
+        ];
 
+        const physicalJobs = [
+            {
+                company: "SafeMart Retail",
+                logo: "SM",
+                title: "Store Associate",
+                location: "New York, NY",
+                type: "Full-time",
+                salary: "$16 - $19/hr",
+                description: "Assist customers, stock shelves, and maintain store cleanliness. Full benefits after 90 days.",
+                expiry: "2024-05-22",
+                link: "https://example.com/apply/safemart",
+                badge: "physical",
+                featured: false
+            },
+            {
+                company: "QuickServe Restaurants",
+                logo: "QS",
+                title: "Restaurant Team Member",
+                location: "Los Angeles, CA",
+                type: "Part-time",
+                salary: "$15 - $17/hr + tips",
+                description: "Take orders, prepare food, and provide excellent customer service. Flexible scheduling available.",
+                expiry: "2024-05-12",
+                link: "https://example.com/apply/quickserve",
+                badge: "physical",
+                featured: false
+            },
+            {
+                company: "GreenThumb Landscaping",
+                logo: "GT",
+                title: "Landscaping Crew Member",
+                location: "Austin, TX",
+                type: "Full-time",
+                salary: "$18 - $22/hr",
+                description: "Maintain residential and commercial landscapes. No experience needed. Training and equipment provided.",
+                expiry: "2024-05-28",
+                link: "https://example.com/apply/greenthumb",
+                badge: "physical",
+                featured: true
+            },
+            {
+                company: "CityDelivery Co",
+                logo: "CD",
+                title: "Delivery Driver",
+                location: "Chicago, IL",
+                type: "Full-time",
+                salary: "$20 - $25/hr",
+                description: "Deliver packages locally using company vehicle. Valid driver's license required. Insurance provided.",
+                expiry: "2024-05-15",
+                link: "https://example.com/apply/citydelivery",
+                badge: "physical",
+                featured: false
+            }
+        ];
+
+        const healthcareJobs = [
+            {
+                company: "Sunrise Senior Living",
+                logo: "SS",
+                title: "Certified Nursing Assistant (CNA)",
+                location: "Miami, FL",
+                type: "Full-time",
+                salary: "$18 - $22/hr",
+                description: "Provide daily care for elderly residents. Assist with bathing, dressing, meals, and medication reminders. CNA certification required.",
+                expiry: "2024-05-20",
+                link: "https://example.com/apply/sunrise",
+                badge: "healthcare",
+                category: "nursing",
+                featured: true
+            },
+            {
+                company: "Golden Years Home Care",
+                logo: "GY",
+                title: "Elder Care Companion",
+                location: "Phoenix, AZ",
+                type: "Part-time",
+                salary: "$16 - $20/hr",
+                description: "Provide companionship and assistance for seniors in their homes. Help with light housekeeping, meal prep, and errands.",
+                expiry: "2024-05-18",
+                link: "https://example.com/apply/goldenyears",
+                badge: "healthcare",
+                category: "eldercare",
+                featured: false
+            },
+            {
+                company: "BrightStart Childcare",
+                logo: "BS",
+                title: "Early Childhood Educator",
+                location: "Seattle, WA",
+                type: "Full-time",
+                salary: "$20 - $26/hr",
+                description: "Teach and care for children ages 2-5. Develop learning activities and ensure safety. ECE degree preferred.",
+                expiry: "2024-05-25",
+                link: "https://example.com/apply/brightstart",
+                badge: "healthcare",
+                category: "childcare",
+                featured: false
+            },
+            {
+                company: "CaringHands Agency",
+                logo: "CH",
+                title: "Special Needs Caregiver",
+                location: "Denver, CO",
+                type: "Full-time",
+                salary: "$19 - $24/hr",
+                description: "Provide care for adults with disabilities. Assist with daily living activities, therapy exercises, and community integration.",
+                expiry: "2024-05-16",
+                link: "https://example.com/apply/caringhands",
+                badge: "healthcare",
+                category: "disability",
+                featured: false
+            },
+            {
+                company: "Comfort Keepers",
+                logo: "CK",
+                title: "In-Home Nurse (LPN)",
+                location: "Boston, MA",
+                type: "Full-time",
+                salary: "$28 - $35/hr",
+                description: "Provide skilled nursing care for patients in their homes. Administer medications, wound care, and monitor vital signs.",
+                expiry: "2024-05-30",
+                link: "https://example.com/apply/comfortkeepers",
+                badge: "healthcare",
+                category: "nursing",
+                featured: true
+            },
+            {
+                company: "Little Sprouts Daycare",
+                logo: "LS",
+                title: "Daycare Assistant",
+                location: "Portland, OR",
+                type: "Part-time",
+                salary: "$15 - $18/hr",
+                description: "Assist lead teachers with childcare duties. Supervise playtime, prepare snacks, and maintain a safe environment.",
+                expiry: "2024-05-14",
+                link: "https://example.com/apply/littlesprouts",
+                badge: "healthcare",
+                category: "childcare",
+                featured: false
+            }
+        ];
+
+        const governmentJobs = [
+            {
+                company: "U.S. Postal Service",
+                logo: "US",
+                title: "Mail Carrier",
+                location: "Various Locations",
+                type: "Full-time",
+                salary: "$21 - $28/hr",
+                description: "Deliver mail and packages on assigned routes. Federal benefits including health insurance and pension. Driving record check required.",
+                expiry: "2024-06-01",
+                link: "https://usps.com/careers",
+                badge: "government",
+                featured: true
+            },
+            {
+                company: "Department of Education",
+                logo: "ED",
+                title: "Administrative Assistant",
+                location: "Washington, DC",
+                type: "Full-time",
+                salary: "$45,000 - $58,000/yr",
+                description: "Provide administrative support for federal education programs. Data entry, scheduling, and correspondence management.",
+                expiry: "2024-05-20",
+                link: "https://usa.gov/jobs",
+                badge: "government",
+                featured: false
+            },
+            {
+                company: "City Parks Department",
+                logo: "CP",
+                title: "Park Maintenance Worker",
+                location: "San Diego, CA",
+                type: "Full-time",
+                salary: "$19 - $24/hr",
+                description: "Maintain city parks and recreational facilities. Landscaping, repairs, and event setup. City benefits included.",
+                expiry: "2024-05-28",
+                link: "https://sandiego.gov/jobs",
+                badge: "government",
+                featured: false
+            },
+            {
+                company: "State Health Department",
+                logo: "SH",
+                title: "Public Health Inspector",
+                location: "Atlanta, GA",
+                type: "Full-time",
+                salary: "$52,000 - $68,000/yr",
+                description: "Inspect restaurants, pools, and public facilities for health code compliance. Bachelor's degree in health sciences preferred.",
+                expiry: "2024-06-05",
+                link: "https://dph.georgia.gov/careers",
+                badge: "government",
+                featured: false
+            }
+        ];
+
+        // ===== RENDER FUNCTIONS =====
+        function renderJobCard(job) {
+            const today = new Date();
+            const expiryDate = new Date(job.expiry);
+            const daysLeft = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+            const isUrgent = daysLeft <= 5;
+            
+            const badgeColors = {
+                online: 'badge-online',
+                physical: 'badge-physical',
+                healthcare: 'badge-healthcare',
+                government: 'badge-government'
+            };
+            
+            return `
+                <div class="job-card ${job.featured ? 'featured' : ''}">
+                    <span class="job-badge ${badgeColors[job.badge] || 'badge-online'}">${job.badge}</span>
+                    <div class="job-company">
+                        <div class="company-logo">${job.logo}</div>
+                        <div class="company-info">
+                            <h4>${job.company}</h4>
+                            <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Verified Employer</span>
+                        </div>
+                    </div>
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                        <span><i class="fas fa-clock"></i> ${job.type}</span>
+                        <span><i class="fas fa-dollar-sign"></i> ${job.salary}</span>
+                    </div>
+                    <div class="job-description">${job.description}</div>
+                    <div class="job-footer">
+                        <span class="expiry-date ${isUrgent ? 'urgent' : ''}">
+                            <i class="fas fa-hourglass-half"></i> 
+                            ${isUrgent ? `Expires in ${daysLeft} days!` : `Until ${job.expiry}`}
+                        </span>
+                        <div class="job-actions">
+                            <button class="btn-small btn-report" onclick="openReportModal('${job.title}', '${job.company}')">
+                                <i class="fas fa-flag"></i>
+                            </button>
+                            <a href="${job.link}" target="_blank" class="btn-small btn-apply" onclick="showToast('Redirecting to official application page...')">
+                                Apply <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderJobs() {
+            document.getElementById('onlineJobsGrid').innerHTML = onlineJobs.map(renderJobCard).join('');
+            document.getElementById('physicalJobsGrid').innerHTML = physicalJobs.map(renderJobCard).join('');
+            document.getElementById('healthcareJobsGrid').innerHTML = healthcareJobs.map(renderJobCard).join('');
+            document.getElementById('governmentJobsGrid').innerHTML = governmentJobs.map(renderJobCard).join('');
+        }
+
+        // ===== HEALTHCARE FILTER =====
+        function filterHealthcare(category) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const filtered = category === 'all' 
+                ? healthcareJobs 
+                : healthcareJobs.filter(j => j.category === category);
+            
+            document.getElementById('healthcareJobsGrid').innerHTML = filtered.map(renderJobCard).join('');
+        }
+
+        // ===== MODAL FUNCTIONS =====
+        function openReportModal(jobTitle = '', companyName = '') {
+            document.getElementById('reportModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Pre-fill if provided
+            const inputs = document.querySelectorAll('#reportModal input');
+            if (jobTitle) inputs[0].value = jobTitle;
+            if (companyName) inputs[1].value = companyName;
+        }
+
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitReport(e) {
+            e.preventDefault();
+            closeReportModal();
+            showToast('Report submitted! Our team will review within 2 hours.');
+            e.target.reset();
+        }
+
+        // ===== TOAST =====
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        // ===== SCROLL =====
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ===== SEARCH =====
+        function searchJobs() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (!query) {
+                renderJobs();
+                return;
+            }
+            
+            const allJobs = [...onlineJobs, ...physicalJobs, ...healthcareJobs, ...governmentJobs];
+            const filtered = allJobs.filter(job => 
+                job.title.toLowerCase().includes(query) ||
+                job.company.toLowerCase().includes(query) ||
+                job.description.toLowerCase().includes(query) ||
+                job.location.toLowerCase().includes(query)
+            );
+            
+            // Show results in online jobs section for demo
+            document.getElementById('onlineJobsGrid').innerHTML = filtered.map(renderJobCard).join('');
+            scrollToSection('online-jobs');
+            showToast(`Found ${filtered.length} matching jobs`);
+        }
+
+        // ===== COUNTDOWN TIMER =====
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const diff = tomorrow - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // ===== DAILY CHALLENGE =====
+        const challenges = [
+            {
+                question: "Which of these is a RED FLAG in a job posting?",
+                options: [
+                    { text: "Requires a college degree", correct: false },
+                    { text: "Asks you to pay upfront fees", correct: true },
+                    { text: "Has a detailed job description", correct: false },
+                    { text: "Lists specific work hours", correct: false }
+                ]
+            },
+            {
+                question: "Where is the SAFEST place for a first job interview?",
+                options: [
+                    { text: "The employer's private home", correct: false },
+                    { text: "A public coffee shop", correct: true },
+                    { text: "A parked car", correct: false },
+                    { text: "A dark alley", correct: false }
+                ]
+            },
+            {
+                question: "What should you NEVER share in a job application?",
+                options: [
+                    { text: "Your work experience", correct: false },
+                    { text: "Your bank account PIN", correct: true },
+                    { text: "Your email address", correct: false },
+                    { text: "Your phone number", correct: false }
+                ]
+            }
+        ];
+
+        let currentChallenge = 0;
+        let streak = parseInt(localStorage.getItem('streak') || '5');
+
+        function loadChallenge() {
+            const challenge = challenges[currentChallenge];
+            document.getElementById('challengeQuestion').textContent = challenge.question;
+            const optionsHtml = challenge.options.map((opt, i) => 
+                `<button class="challenge-option" onclick="answerChallenge(this, ${opt.correct})">${opt.text}</button>`
+            ).join('');
+            document.getElementById('challengeOptions').innerHTML = optionsHtml;
+            document.getElementById('streakCount').textContent = streak;
+        }
+
+        function answerChallenge(btn, isCorrect) {
+            const buttons = document.querySelectorAll('.challenge-option');
+            buttons.forEach(b => b.disabled = true);
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                streak++;
+                showToast('Correct! +1 to your streak! 🔥');
+            } else {
+                btn.classList.add('wrong');
+                streak = 0;
+                showToast('Not quite! Streak reset. Try again tomorrow!');
+            }
+            
+            localStorage.setItem('streak', streak);
+            document.getElementById('streakCount').textContent = streak;
+            
+            setTimeout(() => {
+                currentChallenge = (currentChallenge + 1) % challenges.length;
+                loadChallenge();
+            }, 3000);
+        }
+
+        // ===== ANIMATED COUNTERS =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+                const suffix = counter.textContent.replace(/[0-9]/g, '');
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 30);
+            });
+        }
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            renderJobs();
+            loadChallenge();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Animate counters after a short delay
+            setTimeout(animateCounters, 500);
+            
+            // Close modal on overlay click
+            document.getElementById('reportModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('reportModal')) {
+                    closeReportModal();
+                }
+            });
+            
+            // Search on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchJobs();
+            });
+        });
+    </script>
 </body>
-</html>
+</html>'''
+
+# Save the HTML file
+with open('/mnt/agents/output/safehire_job_board.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print("File saved successfully!")
+print(f"File size: {len(html_code)} characters")
