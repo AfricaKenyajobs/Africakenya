@@ -50,6 +50,7 @@ button {
     margin-top: 8px;
     border: none;
     cursor: pointer;
+    margin-right: 6px;
 }
 
 .apply { background: #2a9d8f; color: white; }
@@ -67,22 +68,14 @@ textarea {
     margin-top: 8px;
 }
 
-footer {
-    background: #1d3557;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-}
 </style>
-
 </head>
 
 <body>
 
 <!-- SAFETY BANNER -->
 <div class="warning">
-⚠ NEVER PAY FOR A JOB. ALL SCAMS MUST BE REPORTED IMMEDIATELY.
+⚠ NEVER PAY FOR A JOB. REPORT ANY SUSPICIOUS ACTIVITY IMMEDIATELY.
 </div>
 
 <header>
@@ -92,20 +85,20 @@ footer {
 
 <div class="container">
 
-<!-- NO SKILLS ONLINE JOBS -->
+<!-- ONLINE NO SKILLS -->
 <div class="section-title">🔥 No-Skills Online Jobs</div>
 
 <div class="card">
 <h3>Online Surveys</h3>
 <p>Answer questions and earn small income.</p>
-<button class="apply">Apply</button>
+<button class="apply" data-link="https://example.com/surveys">Apply</button>
 <button class="report">Report</button>
 </div>
 
 <div class="card">
-<h3>Basic Data Entry</h3>
-<p>Type simple data for companies.</p>
-<button class="apply">Apply</button>
+<h3>Data Entry</h3>
+<p>Simple typing jobs online.</p>
+<button class="apply" data-link="https://example.com/data-entry">Apply</button>
 <button class="report">Report</button>
 </div>
 
@@ -114,22 +107,15 @@ footer {
 
 <div class="card">
 <h3>Freelance Writer</h3>
-<p>Write blogs, articles, and content.</p>
-<button class="apply">Apply</button>
+<p>Write articles and blogs.</p>
+<button class="apply" data-link="https://example.com/writing">Apply</button>
 <button class="report">Report</button>
 </div>
 
 <div class="card">
 <h3>Graphic Designer</h3>
-<p>Create logos and designs for clients.</p>
-<button class="apply">Apply</button>
-<button class="report">Report</button>
-</div>
-
-<div class="card">
-<h3>Virtual Assistant</h3>
-<p>Manage emails and online tasks for companies.</p>
-<button class="apply">Apply</button>
+<p>Create logos and designs.</p>
+<button class="apply" data-link="https://example.com/design">Apply</button>
 <button class="report">Report</button>
 </div>
 
@@ -138,22 +124,15 @@ footer {
 
 <div class="card">
 <h3>Nursing Assistant</h3>
-<p>Support nurses in hospitals.</p>
-<button class="apply">Apply</button>
+<p>Assist in hospitals and clinics.</p>
+<button class="apply" data-link="https://example.com/nursing">Apply</button>
 <button class="report">Report</button>
 </div>
 
 <div class="card">
-<h3>Elderly Care Worker</h3>
-<p>Take care of elderly people safely.</p>
-<button class="apply">Apply</button>
-<button class="report">Report</button>
-</div>
-
-<div class="card">
-<h3>Child Care Worker</h3>
-<p>Assist families with children care.</p>
-<button class="apply">Apply</button>
+<h3>Elder Care Worker</h3>
+<p>Take care of elderly people.</p>
+<button class="apply" data-link="https://example.com/elder-care">Apply</button>
 <button class="report">Report</button>
 </div>
 
@@ -163,14 +142,14 @@ footer {
 <div class="card">
 <h3>Shop Assistant</h3>
 <p>Work in retail stores.</p>
-<button class="apply">Apply</button>
+<button class="apply" data-link="https://example.com/shop">Apply</button>
 <button class="report">Report</button>
 </div>
 
 <div class="card">
 <h3>Security Guard</h3>
 <p>Protect buildings and people.</p>
-<button class="apply">Apply</button>
+<button class="apply" data-link="https://example.com/security">Apply</button>
 <button class="report">Report</button>
 </div>
 
@@ -179,26 +158,21 @@ footer {
 
 <div class="card">
 <h3>Clerical Officer</h3>
-<p>Office administrative work.</p>
-<button class="apply">Apply</button>
+<p>Office administration role.</p>
+<button class="apply" data-link="https://example.com/gov">Apply</button>
 <button class="report">Report</button>
 </div>
 
-<!-- SERVICE REQUESTS -->
+<!-- REQUESTS -->
 <div class="section-title">📚 Service Requests</div>
 
 <div class="card">
 <h3>Private Tutor Needed</h3>
-<p>Students need tutoring services.</p>
-<button class="apply">Contact</button>
+<p>Students requesting tutors.</p>
+<button class="apply" data-link="https://example.com/tutor">Contact</button>
 <button class="report">Report</button>
 </div>
 
-<div class="card">
-<h3>Freelancer Needed</h3>
-<p>People requesting small tasks done.</p>
-<button class="apply">Contact</button>
-<button class="report">Report</button>
 </div>
 
 <!-- SAFETY -->
@@ -206,32 +180,58 @@ footer {
 <h2>⚠ Safety Rules</h2>
 <ul>
 <li>Never pay for jobs</li>
-<li>Meet in public open places</li>
-<li>Only trust verified companies</li>
-<li>Report suspicious activity</li>
+<li>Meet in public places</li>
+<li>Verify companies first</li>
+<li>Report scams immediately</li>
 </ul>
 </div>
 
-<!-- REPORT -->
+<!-- REPORT SYSTEM -->
 <div class="section">
 <h2>🚨 Report Issue</h2>
-<textarea placeholder="Describe the issue..."></textarea>
-<button class="report">Submit Report</button>
+<textarea id="reportText" placeholder="Describe issue..."></textarea>
+<button onclick="submitReport()">Submit Report</button>
 </div>
 
 <!-- QUESTIONS -->
 <div class="section">
 <h2>❓ Ask Questions</h2>
-<textarea placeholder="Ask anything..."></textarea>
-<button>Submit</button>
+<textarea id="questionText" placeholder="Ask anything..."></textarea>
+<button onclick="submitQuestion()">Submit</button>
 </div>
 
-</div>
+<!-- SCRIPT -->
+<script>
+// APPLY BUTTON LOGIC
+document.querySelectorAll(".apply").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const link = btn.getAttribute("data-link");
+        if (link) {
+            window.open(link, "_blank");
+        } else {
+            alert("No link available");
+        }
+    });
+});
 
-<!-- ✅ FIREBASE CONNECTION (YOU WERE ASKING ABOUT THIS) -->
-<script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/app.js"></script>
+// REPORT
+function submitReport() {
+    const text = document.getElementById("reportText").value;
+    if (text) {
+        alert("Report submitted (demo mode).");
+        console.log("REPORT:", text);
+    }
+}
+
+// QUESTIONS
+function submitQuestion() {
+    const text = document.getElementById("questionText").value;
+    if (text) {
+        alert("Question submitted (demo mode).");
+        console.log("QUESTION:", text);
+    }
+}
+</script>
 
 </body>
 </html>
-
