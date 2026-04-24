@@ -50,7 +50,6 @@ button {
     margin-top: 8px;
     border: none;
     cursor: pointer;
-    margin-right: 6px;
 }
 
 .apply { background: #2a9d8f; color: white; }
@@ -68,55 +67,62 @@ textarea {
     margin-top: 8px;
 }
 
+footer {
+    background: #1d3557;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- SAFETY BANNER -->
+<!-- SAFETY -->
 <div class="warning">
-⚠ NEVER PAY FOR A JOB. REPORT ANY SUSPICIOUS ACTIVITY IMMEDIATELY.
+⚠ NEVER PAY FOR A JOB. REPORT ANY SUSPICIOUS LISTING.
 </div>
 
 <header>
 <h1>Africakenya</h1>
-<p>Safe Jobs • Online Work • Skilled Jobs • Care Jobs • Government Jobs • Requests</p>
+<p>Safe Jobs • Online Work • Care Jobs • Government Jobs • Requests</p>
 </header>
 
 <div class="container">
 
-<!-- ONLINE NO SKILLS -->
+<!-- NO SKILLS -->
 <div class="section-title">🔥 No-Skills Online Jobs</div>
 
 <div class="card">
 <h3>Online Surveys</h3>
-<p>Answer questions and earn small income.</p>
-<button class="apply" data-link="https://example.com/surveys">Apply</button>
-<button class="report">Report</button>
+<p>Answer simple questions and earn.</p>
+<button class="apply" onclick="applyJob('Online Surveys')">Apply</button>
+<button class="report" onclick="reportJob('Online Surveys')">Report</button>
 </div>
 
 <div class="card">
 <h3>Data Entry</h3>
-<p>Simple typing jobs online.</p>
-<button class="apply" data-link="https://example.com/data-entry">Apply</button>
-<button class="report">Report</button>
+<p>Type simple information for companies.</p>
+<button class="apply" onclick="applyJob('Data Entry')">Apply</button>
+<button class="report" onclick="reportJob('Data Entry')">Report</button>
 </div>
 
-<!-- SKILLED ONLINE JOBS -->
+<!-- SKILLED -->
 <div class="section-title">💻 Skilled Online Jobs</div>
 
 <div class="card">
-<h3>Freelance Writer</h3>
+<h3>Freelance Writing</h3>
 <p>Write articles and blogs.</p>
-<button class="apply" data-link="https://example.com/writing">Apply</button>
-<button class="report">Report</button>
+<button class="apply" onclick="applyJob('Writing')">Apply</button>
+<button class="report" onclick="reportJob('Writing')">Report</button>
 </div>
 
 <div class="card">
-<h3>Graphic Designer</h3>
+<h3>Graphic Design</h3>
 <p>Create logos and designs.</p>
-<button class="apply" data-link="https://example.com/design">Apply</button>
-<button class="report">Report</button>
+<button class="apply" onclick="applyJob('Design')">Apply</button>
+<button class="report" onclick="reportJob('Design')">Report</button>
 </div>
 
 <!-- CARE JOBS -->
@@ -124,55 +130,60 @@ textarea {
 
 <div class="card">
 <h3>Nursing Assistant</h3>
-<p>Assist in hospitals and clinics.</p>
-<button class="apply" data-link="https://example.com/nursing">Apply</button>
-<button class="report">Report</button>
+<p>Support hospital staff.</p>
+<button class="apply" onclick="applyJob('Nursing')">Apply</button>
+<button class="report" onclick="reportJob('Nursing')">Report</button>
 </div>
 
 <div class="card">
-<h3>Elder Care Worker</h3>
+<h3>Elder Care</h3>
 <p>Take care of elderly people.</p>
-<button class="apply" data-link="https://example.com/elder-care">Apply</button>
-<button class="report">Report</button>
+<button class="apply" onclick="applyJob('Elder Care')">Apply</button>
+<button class="report" onclick="reportJob('Elder Care')">Report</button>
 </div>
 
-<!-- PHYSICAL JOBS -->
+<!-- PHYSICAL -->
 <div class="section-title">🏢 Physical Jobs</div>
 
 <div class="card">
 <h3>Shop Assistant</h3>
 <p>Work in retail stores.</p>
-<button class="apply" data-link="https://example.com/shop">Apply</button>
-<button class="report">Report</button>
+<button class="apply" onclick="applyJob('Shop Assistant')">Apply</button>
+<button class="report" onclick="reportJob('Shop Assistant')">Report</button>
 </div>
 
 <div class="card">
 <h3>Security Guard</h3>
-<p>Protect buildings and people.</p>
-<button class="apply" data-link="https://example.com/security">Apply</button>
-<button class="report">Report</button>
+<p>Protect buildings.</p>
+<button class="apply" onclick="applyJob('Security')">Apply</button>
+<button class="report" onclick="reportJob('Security')">Report</button>
 </div>
 
-<!-- GOVERNMENT JOBS -->
+<!-- GOVERNMENT -->
 <div class="section-title">🏛 Government Jobs</div>
 
 <div class="card">
 <h3>Clerical Officer</h3>
-<p>Office administration role.</p>
-<button class="apply" data-link="https://example.com/gov">Apply</button>
-<button class="report">Report</button>
+<p>Office administration work.</p>
+<button class="apply" onclick="applyJob('Gov Job')">Apply</button>
+<button class="report" onclick="reportJob('Gov Job')">Report</button>
 </div>
 
 <!-- REQUESTS -->
-<div class="section-title">📚 Service Requests</div>
+<div class="section-title">📚 Requests (People needing help)</div>
 
 <div class="card">
 <h3>Private Tutor Needed</h3>
-<p>Students requesting tutors.</p>
-<button class="apply" data-link="https://example.com/tutor">Contact</button>
-<button class="report">Report</button>
+<p>Students requesting tutoring.</p>
+<button class="apply" onclick="applyJob('Tutor Request')">Contact</button>
+<button class="report" onclick="reportJob('Tutor Request')">Report</button>
 </div>
 
+<div class="card">
+<h3>Freelancer Needed</h3>
+<p>People requesting services.</p>
+<button class="apply" onclick="applyJob('Freelance Request')">Contact</button>
+<button class="report" onclick="reportJob('Freelance Request')">Report</button>
 </div>
 
 <!-- SAFETY -->
@@ -180,13 +191,13 @@ textarea {
 <h2>⚠ Safety Rules</h2>
 <ul>
 <li>Never pay for jobs</li>
-<li>Meet in public places</li>
-<li>Verify companies first</li>
-<li>Report scams immediately</li>
+<li>Meet in public places for physical jobs</li>
+<li>Trust verified companies only</li>
+<li>Report anything suspicious</li>
 </ul>
 </div>
 
-<!-- REPORT SYSTEM -->
+<!-- REPORT -->
 <div class="section">
 <h2>🚨 Report Issue</h2>
 <textarea id="reportText" placeholder="Describe issue..."></textarea>
@@ -200,38 +211,32 @@ textarea {
 <button onclick="submitQuestion()">Submit</button>
 </div>
 
-<!-- SCRIPT -->
-<script>
-// APPLY BUTTON LOGIC
-document.querySelectorAll(".apply").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const link = btn.getAttribute("data-link");
-        if (link) {
-            window.open(link, "_blank");
-        } else {
-            alert("No link available");
-        }
-    });
-});
+</div>
 
-// REPORT
-function submitReport() {
-    const text = document.getElementById("reportText").value;
-    if (text) {
-        alert("Report submitted (demo mode).");
-        console.log("REPORT:", text);
-    }
+<!-- FIREBASE SCRIPTS (KEEP AT BOTTOM ALWAYS) -->
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/app.js"></script>
+
+<script>
+function applyJob(job){
+    alert("Applied for: " + job + " (Connected to Firebase next step)");
 }
 
-// QUESTIONS
-function submitQuestion() {
-    const text = document.getElementById("questionText").value;
-    if (text) {
-        alert("Question submitted (demo mode).");
-        console.log("QUESTION:", text);
-    }
+function reportJob(job){
+    alert("Reported: " + job + " (Will be sent to Firebase)");
+}
+
+function submitReport(){
+    let text = document.getElementById("reportText").value;
+    alert("Report sent: " + text);
+}
+
+function submitQuestion(){
+    let text = document.getElementById("questionText").value;
+    alert("Question sent: " + text);
 }
 </script>
 
 </body>
 </html>
+                       
